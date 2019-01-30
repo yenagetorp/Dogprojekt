@@ -1,0 +1,33 @@
+﻿@using DogProject.Models
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Create</title>
+</head>
+<body>
+    @{ 
+        Dog dog = ViewBag.Dog;
+
+    }
+    <form method="post" action="/dogs/edit">
+        <fieldset>
+            <legend>Dogs Info</legend>
+            <input type="hidden" name="Id" value="@dog.Id" />
+
+            <label for="DogName">Dog name:</label>
+            <input type="text" name="Name" value="@dog.Name" />
+            <br />
+            <br />
+            <label for="DogAge">Dog age:</label>
+            <input type="text" name="Age" value="@dog.Age" />
+            <br />
+            <br />
+            <input type="submit" value="Update" />
+        </fieldset>
+    </form>
+
+
+</body>
+</html>

@@ -1,0 +1,40 @@
+﻿
+@using DogProject.Models
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/skeleton/2.0.4/skeleton.min.css">
+
+</head>
+<body>
+    <span style="background-color:azure">@DateTime.Now.ToShortDateString()</span>
+    <h1 style="background-color:aqua">Dogs</h1>
+    <ul>
+        @foreach (Dog dog in ViewBag.dogs)
+        {
+            @*<li><pre class="tab">ID: @dog.Id   Name: @dog.Name  Age: @dog.Age <a href="dogs/edit/@dog.Id">Update</a>
+            <button onclick="document.getElementById('form-@dog.Id')">Delete</button> </pre></li>*@
+
+        <li>
+            <a href="~/Views/Dogs/Index.cshtml">~/Views/Dogs/Index.cshtml</a>
+            @* <a href="/Dogs/Edit/@dog.Id">@dog.Name</a>*@
+            <pre class="tab">ID: @dog.Id   Name: @dog.Name  Age: @dog.Age <a href="dogs/edit/@dog.Id">Update</a></pre>
+
+            /*Each actionfunction with an HttpPost filter attribute, should have a form.*/
+
+            <form method="post" action="/dogs/delete/@dog.Id">
+                <input style="background-color:green " type="submit" value="Delete" />
+            </form>
+        </li>
+        }
+
+
+    </ul>
+
+
+</body>
+</html>
